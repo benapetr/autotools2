@@ -15,6 +15,8 @@
 
 #include "Terminal.hpp"
 #include "Configuration.hpp"
+#include "InputFile.hpp"
+#include "Exception.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -32,6 +34,15 @@ int main(int argc, char *argv[])
         Terminal::Error("no input file");
         return 2;
     }
+    InputFile *input_file = new InputFile();
+    try
+    {
+        input_file->Load(Configuration::Configure_Ac);
+    } catch (Exception ex)
+    {
+        Terminal::Error(ex.Message + " in " + ex.Source);
+    }
+    delete input_file;
     return 0;
 }
 
