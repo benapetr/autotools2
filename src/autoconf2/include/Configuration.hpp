@@ -26,6 +26,7 @@ class Configuration
     public:
         static unsigned int Verbosity;
         static std::string Configure_Ac;
+        static std::string Target;
         //static string Version;
     protected:
     private:

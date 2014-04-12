@@ -35,11 +35,15 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/Configuration.hpp" />
+		<Unit filename="include/Exception.hpp" />
+		<Unit filename="include/InputFile.hpp" />
 		<Unit filename="include/Makefile.hpp" />
 		<Unit filename="include/Script.hpp" />
 		<Unit filename="include/Terminal.hpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Configuration.cpp" />
+		<Unit filename="src/Exception.cpp" />
+		<Unit filename="src/InputFile.cpp" />
 		<Unit filename="src/Makefile.cpp" />
 		<Unit filename="src/Script.cpp" />
 		<Unit filename="src/Terminal.cpp" />

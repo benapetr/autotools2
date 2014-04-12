@@ -15,6 +15,7 @@
 
 #include "Terminal.hpp"
 #include "Configuration.hpp"
+#include "Filesystem.hpp"
 #include "InputFile.hpp"
 #include "Exception.hpp"
 
@@ -29,18 +30,39 @@ int main(int argc, char *argv[])
     delete terminal_;
     if (Configuration::Configure_Ac == "")
     {
-        // user didn't provide any input file
-        //! \todo Check if there isn't some in current folder
-        Terminal::Error("no input file");
-        return 2;
+        if (Filesystem::FExists("configure.in"))
+        {
+            Configuration::Configure_Ac = "configure.in";
+        } else if (Filesystem::FExists("configure.ac"))
+        {
+            Configuration::Configure_Ac = "configure.ac";
+        } else
+        {
+            // user didn't provide any input file
+            Terminal::Error("no input file");
+            return 2;
+        }
     }
     InputFile *input_file = new InputFile();
     try
     {
+        if (Configuration::Target == "")
+        {
+            Configuration::Target = "configure";
+        }
+        if (Filesystem::FExists(Configuration::Target))
+        {
+            Terminal::Error("target " + Configuration::Target + " already exists");
+            return 4;
+        }
         input_file->Load(Configuration::Configure_Ac);
+        input_file->GenerateConfigure(Configuration::Target);
     } catch (Exception ex)
     {
+        // we failed to parse this file
         Terminal::Error(ex.Message + " in " + ex.Source);
+        delete input_file;
+        return 1;
     }
     delete input_file;
     return 0;

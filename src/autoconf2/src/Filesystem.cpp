@@ -13,14 +13,11 @@
 //  Free Software Foundation, Inc.,
 //  51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-#include "Makefile.hpp"
+#include <sys/stat.h>
+#include "Filesystem.hpp"
 
-Makefile::Makefile()
+bool Filesystem::FExists (const std::string& name)
 {
-    //ctor
-}
-
-Makefile::~Makefile()
-{
-    //dtor
+    struct stat buffer;
+    return (stat (name.c_str(), &buffer) == 0);
 }

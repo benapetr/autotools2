@@ -16,14 +16,18 @@
 #ifndef INPUTFILE_H
 #define INPUTFILE_H
 
+#include <string>
+
 class InputFile
 {
     public:
         InputFile();
         InputFile(const InputFile& other);
         void Load(std::string path);
+        void GenerateConfigure(std::string path);
     protected:
     private:
+        std::string sourceCode;
 };
 
 #endif // INPUTFILE_H

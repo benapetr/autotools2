@@ -74,31 +74,26 @@ bool Terminal::Parse(int argc, char * argv[])
             break;
         switch (c)
         {
-            case 0:
-                // If this option set a flag, do nothing else now. */
-                if (long_options[option_index].flag != 0)
-                    break;
-                    printf ("option %s", long_options[option_index].name);
-                if (optarg)
-                    printf (" with arg %s\n", optarg);
+            case 'V':
+                DisplayVersion();
+                return false;
+            case 'h':
+                DisplayHelp();
+                return false;
+            case 'd':
                 break;
-             case 'V':
-                 DisplayVersion();
-                 return false;
-             case 'h':
-                 DisplayHelp();
-                 return false;
-             case 'd':
-                 break;
-             case 'v':
-                 Configuration::Verbosity++;
-                 break;
-             case '?':
-                 return false;
-
-             default:
-                 abort();
+            case 'v':
+                Configuration::Verbosity++;
+                break;
+            case '?':
+                return false;
+                break;
         }
+    }
+    if (optind < argc)
+    {
+        // we don't support more than one input file so far
+        Configuration::Configure_Ac = argv[optind];
     }
     return true;
 }

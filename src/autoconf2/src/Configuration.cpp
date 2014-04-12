@@ -17,3 +17,4 @@
 
 unsigned int Configuration::Verbosity = 1;
 std::string Configuration::Configure_Ac = "";
+std::string Configuration::Target = "";

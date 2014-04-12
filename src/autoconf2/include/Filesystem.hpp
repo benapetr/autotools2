@@ -13,17 +13,14 @@
 //  Free Software Foundation, Inc.,
 //  51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-#ifndef MAKEFILE_H
-#define MAKEFILE_H
+#ifndef FILESYSTEM_H
+#define FILESYSTEM_H
 
+#include <string>
 
-class Makefile
+namespace Filesystem
 {
-    public:
-        Makefile();
-        virtual ~Makefile();
-    protected:
-    private:
-};
+    bool FExists(const std::string &name);
+}
 
-#endif // MAKEFILE_H
+#endif // FILESYSTEM_H
