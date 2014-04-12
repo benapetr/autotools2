@@ -36,6 +36,9 @@ int main(int argc, char *argv[])
         } else if (Filesystem::FExists("configure.ac"))
         {
             Configuration::Configure_Ac = "configure.ac";
+        } else if (Filesystem::FExists("configure.ac2"))
+        {
+            Configuration::Configure_Ac = "configure.ac2";
         } else
         {
             // user didn't provide any input file

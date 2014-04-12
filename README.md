@@ -26,6 +26,7 @@ Differences
 
 * Written in C++ and hosted here on github, so that anyone can easily contribute
 * Using LGPL so that it's suitable for commercial solutions as well
+* You can use // comments in configure.ac scripts
 
 
 Note: This source code was written from scratch by me, it doesn't use any original

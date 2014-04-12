@@ -60,10 +60,11 @@ bool Terminal::Parse(int argc, char * argv[])
         static struct option long_options[] =
         {
             // These options set a flag.
-            {"verbose", no_argument, NULL, 'v'},
-            {"help",    no_argument, NULL, 'h'},
-            {"version", no_argument, NULL, 'V'},
-            {"debug",   no_argument, NULL, 'd'},
+            {"verbose", no_argument,          NULL, 'v'},
+            {"help",    no_argument,          NULL, 'h'},
+            {"version", no_argument,          NULL, 'V'},
+            {"debug",   no_argument,          NULL, 'd'},
+            {"output",  required_argument,    NULL, 'o'},
             {0, 0, 0, 0}
         };
         // getopt_long stores the option index here.
@@ -84,6 +85,9 @@ bool Terminal::Parse(int argc, char * argv[])
                 break;
             case 'v':
                 Configuration::Verbosity++;
+                break;
+            case 'o':
+                Configuration::Target = std::string(optarg);
                 break;
             case '?':
                 return false;

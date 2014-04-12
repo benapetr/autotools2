@@ -13,31 +13,21 @@
 //  Free Software Foundation, Inc.,
 //  51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-#ifndef INPUTFILE_H
-#define INPUTFILE_H
+#ifndef STRINGTOOL_H
+#define STRINGTOOL_H
 
-#include <string>
 #include <vector>
-#include "OutputScript.hpp"
-#include "StringTool.hpp"
+#include <string>
 
-class InputFile
+namespace StringTool
 {
-    public:
-        InputFile();
-        InputFile(const InputFile& other);
-        void Load(std::string path);
-        void GenerateConfigure(std::string path);
-    protected:
-    private:
-        void processLine(std::string text);
-        void ac_init(std::vector<std::string> parameters);
-        std::string solutionName;
-        std::string solutionVersion;
-        std::string sourceCode;
-        OutputScript *output_script;
-        unsigned int currentLine;
-        unsigned int warningCount;
-};
+    std::vector<std::string> split(const std::string &s, char delim);
+    std::string &ltrim(std::string &s);
+    std::string &rtrim(std::string &s);
+    std::string &trim(std::string &s);
+    std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems);
+    std::string itos(int i);
+    std::string itos(unsigned int i);
+}
 
-#endif // INPUTFILE_H
+#endif // STRINGTOOL_H

@@ -13,31 +13,21 @@
 //  Free Software Foundation, Inc.,
 //  51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-#ifndef INPUTFILE_H
-#define INPUTFILE_H
+#ifndef OUTPUTSCRIPT_BASH_H
+#define OUTPUTSCRIPT_BASH_H
 
 #include <string>
-#include <vector>
 #include "OutputScript.hpp"
-#include "StringTool.hpp"
 
-class InputFile
+class OutputScript_Bash : public OutputScript
 {
     public:
-        InputFile();
-        InputFile(const InputFile& other);
-        void Load(std::string path);
-        void GenerateConfigure(std::string path);
+        OutputScript_Bash();
+        virtual ~OutputScript_Bash() {}
+        std::string GenerateHeader();
+        std::string GenerateInit(std::string product, std::string version);
     protected:
     private:
-        void processLine(std::string text);
-        void ac_init(std::vector<std::string> parameters);
-        std::string solutionName;
-        std::string solutionVersion;
-        std::string sourceCode;
-        OutputScript *output_script;
-        unsigned int currentLine;
-        unsigned int warningCount;
 };
 
-#endif // INPUTFILE_H
+#endif // OUTPUTSCRIPT_BASH_H

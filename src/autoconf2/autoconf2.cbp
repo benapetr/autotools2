@@ -36,15 +36,19 @@
 		</Compiler>
 		<Unit filename="include/Configuration.hpp" />
 		<Unit filename="include/Exception.hpp" />
+		<Unit filename="include/Filesystem.hpp" />
 		<Unit filename="include/InputFile.hpp" />
-		<Unit filename="include/Makefile.hpp" />
+		<Unit filename="include/OutputScript.hpp" />
+		<Unit filename="include/OutputScript_Bash.hpp" />
 		<Unit filename="include/Script.hpp" />
 		<Unit filename="include/Terminal.hpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Configuration.cpp" />
 		<Unit filename="src/Exception.cpp" />
+		<Unit filename="src/Filesystem.cpp" />
 		<Unit filename="src/InputFile.cpp" />
-		<Unit filename="src/Makefile.cpp" />
+		<Unit filename="src/OutputScript.cpp" />
+		<Unit filename="src/OutputScript_Bash.cpp" />
 		<Unit filename="src/Script.cpp" />
 		<Unit filename="src/Terminal.cpp" />
 		<Extensions>
